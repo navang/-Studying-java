@@ -15,7 +15,6 @@ public class Main {
 		System.out.println("영어 :" + s.getEng()); 
 		System.out.println("수학 :" + s.getMath()); 
 		System.out.println("총점 " +s.calTotal());
-		
 		System.out.println("평균 " +s.calAverage());
 	}
 
