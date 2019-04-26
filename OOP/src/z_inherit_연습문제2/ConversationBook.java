@@ -22,7 +22,7 @@ public class ConversationBook extends Book {
 
 
 	public void showinfo() {
-		// 2번을 조회한 경우에만 System.out.println("제품 :" + productID);
+		System.out.println("제품 :" + productID);
 		
 		System.out.println("상품설명 :" + description);
 		System.out.println("생산자:" + producer);

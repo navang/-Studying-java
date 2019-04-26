@@ -19,7 +19,7 @@ public class CompactDisc extends Product {
 	
 
 	public void showinfo() {
-		//2번 조회하면System.out.println("제품 :" + productID);
+		System.out.println("제품 :" + productID);
 		System.out.println("상품설명 :" + description);
 		System.out.println("생산자:" + producer);
 		System.out.println("가격:" + price);

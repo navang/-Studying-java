@@ -24,6 +24,23 @@ public class Product {
 //		System.out.println("가격:" + price);
 	}
 
+	public void getBook() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void getCompactDisc() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void getConversationBook() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
 	
 
 	
