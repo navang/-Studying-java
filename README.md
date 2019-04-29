@@ -1,5 +1,4 @@
 # code_test
 
-*
-java works learning
-*
+*Studying java
+
