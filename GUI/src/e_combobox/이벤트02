@@ -1,0 +1,28 @@
+
+interface AAListener {
+
+		void a();
+		void b();
+		void c();
+
+}
+
+class AAAdapter implements AAListener { 
+
+	public void a() { }
+	public void b() { }
+	public void c() { }
+	
+	}
+	
+	clss MyHdlr extends AAAdapter {
+	public void a() { } 
+	}
+	
+class AAAdapter implements AAListener { 
+	// a,b,c, 오버라이딩 
+	public void a() { }
+	public void b() { }
+	public void c() { }
+	
+	}

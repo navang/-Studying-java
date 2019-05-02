@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import b_info.InfoTest2.BtnHdlr;
+
 
 public class Calc_Gui {
 	// 1. 멤버변수 선언

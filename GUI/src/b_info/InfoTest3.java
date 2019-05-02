@@ -1,8 +1,12 @@
 package b_info;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.*;
+
+import b_info.InfoTest2.MyHdlr;
 
 
 public class InfoTest3 {
@@ -55,6 +59,7 @@ public class InfoTest3 {
 		p_south.add(bDelete);
 		p_south.add(bCancle);
 		p_south.add(bAdd);
+		p_south.add(bExit);
 		p_south.setLayout(new GridLayout(1, 6));
 		
 		f.add(p_south, BorderLayout.SOUTH);
@@ -88,6 +93,51 @@ public class InfoTest3 {
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
+	void eventProc() {
+		MyHdlr mh =new MyHdlr();
+		bExit.addMouseListener(mh);
+
+	}
+	
+	class MyHdlr implements MouseListener{
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			Object obj = e.getSource();
+			if(obj == bExit) {
+				System.exit(0);
+			}
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			
+			Object obj = e.getSource();
+			if( obj == bExit) {
+				
+		}
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
+
 	public static void main(String[] args) {
 		InfoTest3 it = new InfoTest3();
 		it.addLayout();

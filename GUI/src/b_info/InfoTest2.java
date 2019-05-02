@@ -1,283 +1,148 @@
 package b_info;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.awt.event.FocusAdapter;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
+public class InfoTest2{
+   //1. 멤버 변수 선언 (생성자 안에서 선언하나, 멤버 변수로 선언햇기 때문에 메소드 안에서 사용 가능.)
+   //객체 생성은 HasA
+   JFrame f;
+   JTextField tf_name, tf_id, tf_tel, tf_email, tf_sex, tf_age, tf_address;
+   JTextArea ta1;
+   JButton b_search, b_show, b_add, b_modify, b_delete, b_print, b_exit;
+   
+   //2. 멤버 객체 생성
+   InfoTest2(){
+      f = new JFrame("DB Test");
+      
+      //NullPointerException: 객체 생성 miss
+      
+      tf_name = new JTextField(15);
+      tf_id = new JTextField(15);
+      tf_tel = new JTextField(15);
+      tf_email = new JTextField(15);
+      tf_sex = new JTextField(15);
+      tf_age = new JTextField(15);
+      tf_address = new JTextField(15);
+      
+      Border border = BorderFactory.createLineBorder(Color.BLACK);
+      
+      ta1 = new JTextArea(11, 50);
+//      ta1.setSize(2, 50);
+      ta1.setBorder(border);
+      ta1.setFont(new Font("Verdana", Font.BOLD, 12));
 
-public class InfoTest2 {
-
-	//1 . 멤버변수 선언
-	JFrame f;
-	JButton bAdd, bShow, bSearch, bDelete, bCancle, bExit;
-	JTextArea ta;
-	JTextField tfName, tfId, tfTel, tfSex,tfAge, tfHome;
-
-	ArrayList<TestPerson> list = new ArrayList<TestPerson>();
-
-	//2. 멤버 객체 생성
-	InfoTest2(){
-		f = new JFrame("정보");
-
-		bAdd = new JButton("추가");
-		bShow = new JButton("show");
-		bSearch = new JButton("검색");
-		bDelete = new JButton("삭제");
-		bCancle = new JButton("취소");
-		bExit = new JButton("나가기");
-
-		ta = new JTextArea();
-
-		tfName =new JTextField(15);
-		tfId =new JTextField(15);
-		tfTel =new JTextField(15);
-		tfSex =new JTextField(15);
-		tfAge =new JTextField(15);
-		tfHome =new JTextField(15);
-
-
-	}
-
-
-
-	// 3. 화면 붙이기 및 화면 출력
-	void addLayout() {
-
-		BorderLayout bl = new BorderLayout();
-		f.setLayout(bl);
-
-		// South 영역 
-
-		JPanel p_south =new JPanel();
-		JPanel p_center = new JPanel();
-		JPanel p_west = new JPanel();
-
-
-		p_south.add(bAdd);
-		p_south.add(bShow);
-		p_south.add(bSearch);
-		p_south.add(bDelete);
-		p_south.add(bCancle);
-		p_south.add(bExit);
-		p_south.setLayout(new GridLayout(1, 6));
-
-		f.add(p_south, BorderLayout.SOUTH);
-
-		// WEST 영역 
-
-		p_west.add(new JLabel("name"));
-		p_west.add(tfName);
-		p_west.add(new JLabel("Id"));
-		p_west.add(tfId);
-		p_west.add(new JLabel("Tel"));
-		p_west.add(tfTel);
-		p_west.add(new JLabel("Sex"));
-		p_west.add(tfSex);
-		p_west.add(new JLabel("Age"));
-		p_west.add(tfAge);
-		p_west.add(new JLabel("Home"));
-		p_west.add(tfHome);
-		p_west.setLayout(new GridLayout(6,2));
-
-		f.add(p_west, BorderLayout.WEST);
-		// 나머지도 이런방식
-
-		f.add(ta, BorderLayout.CENTER);
-
-		// 전체프레임영역에 붙이기
-
-		f.setSize(720, 580);
-		f.setVisible(true);
-
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-	}
-	//이벤트 등록
-	void eventProc() {
-		BtnHdlr bh = new BtnHdlr();
-		// 버튼과 이벤트핸들러 연결 
-		bAdd.addActionListener(bh);
-		bShow.addActionListener(bh);
-		bSearch.addActionListener(bh);
-		bDelete.addActionListener(bh);
-		bCancle.addActionListener(bh);
-		bExit.addActionListener(bh);
-
-		// 전화번호 텍스필드 엔터 이벤트
-		tfTel.addActionListener(new TfHdlr());
-		
-		// 포커스 이벤트
-		tfId.addFocusListener(new IdFocus());
-	}//eventProc 
-	// 전화번호 텍스필드 포커스이벤트
-	class IdFocus implements FocusListener {
-
-		public void focusGained(FocusEvent e) {
-		}
-
-		public void focusLost(FocusEvent e) {
-			//" 801214-7845167"
-			String id = tfId.getText();
-			char sung = id.charAt(7);
-			if(sung=='1' || sung =='3') tfSex.setText("남자");
-			else tfSex.setText("여자");
-			// 출신지 
-			char from = id.charAt(8);
-			if(from == '0')tfHome.setText("서울");
-			else tfHome.setText("지방");
-			// 나이 
-			String nai1 = id.substring(0, 2);
-			int nai2 = Integer.parseInt(nai1);
-			int age = 0;
-			Calendar year = Calendar.getInstance();
-			char gen = id.charAt(7);
-				if(gen == '1' || gen == '2') {
-				age = year.get(Calendar.YEAR) - ( 1900 + nai2) + 1;
-			}
-				else if(gen == '3' || gen == '4') {
-				age = year.get(Calendar.YEAR) - ( 2000 + nai2) + 1;
-			}
-			tfAge.setText(Integer.toString(age));
-		}
-		
-	}
-
-	class TfHdlr implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			System.out.println("전화번호 이벤트");
-			// 1. 사용자가 입력한 전번 얻어오기 
-			String tel = tfTel.getText();
-			// 2. ArrayList 의 각 TestPerson의 tel과 비교해서 같은지 
-			for(TestPerson p : list ) {
-				if(p.getTel().equals(tel)) {
-					// 3. 해당 person의 멤버값들을 각각 테스트필드에 출력 
-					tfName.setText(p.getName());
-					tfId.setText(p.getId());
-					tfTel.setText(p.getTel());
-					tfSex.setText(p.getGender());
-					tfAge.setText(String.valueOf(p.getAge()));
-					tfHome.setText(p.getHome());
-
-				}
-			}
-		} 
-	}
-
-	class BtnHdlr implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			System.out.println("이벤트 발생");
-			Object evt =e.getSource();
-			if(evt == bAdd) {
-				// 입력버튼이 눌렸을때 
-				insert();
-				clearTextField();
-			}else if(evt == bShow) {
-				// 쇼버튼이 눌렸을때 
-				show();
-
-			}else if(evt == bSearch) {
-
-			}else if(evt == bDelete) {
-				delete();
-
-			}else if(evt == bCancle) {
-				clearTextField();
-
-			}else if(evt == bExit) {
-				//System.exit(0);
-				exit();
-			}
-		}
-
-	}
-	void clearTextField() {
-		tfName.setText(null);
-		tfId.setText(null);
-		tfTel.setText(null);
-		tfSex.setText(null);
-		tfAge.setText(null);
-		tfHome.setText(null);
-	}
-	void exit() {
-		int result = JOptionPane.showConfirmDialog(null, " 종료하십니까?");
-		// 종료버튼이 눌렷을때 강제프로그램 종료 ( System.exit(0); )
-		if( result == JOptionPane.OK_OPTION) {
-			System.exit(0);
-		}
-	}
-	void show() {
-		ta.setText("--------------전체보기----------------\n\n");
-		for(TestPerson p : list) {
-			ta.append(p.toString());
-
-		}
-	}
-	void insert() {
-		// 1, 각 텍스트 필드의 입력값을 얻어오기 
-		// 2. 1번 값들을 TestPerson의 멤버 지정 * (1-생성자 / 2- setter ) 
-		// 3. ArrayList에 2번 객체 추가 
-		// String name = tfName.getText();
-		// 나머지.. 
-
-		TestPerson p = new TestPerson();
-		p.setName(tfName.getText());			 // tf에 입력한 값을 가져오기 
-		p.setId(tfId.getText());
-		p.setTel(tfTel.getText());
-		p.setGender(tfSex.getText());
-		p.setAge(Integer.parseInt(tfAge.getText())); // Integer.parseInt 
-		p.setHome(tfHome.getText());
-
-		list.add(p);
-
-
-	}
-	void delete( ) {
-		// 1. 사용자가 입력한 전번 얻어오기 
-		String tel = tfTel.getText();
-		// 2. ArrayList 의 각 TestPerson의 tel과 비교해서 같은지 
-		for(TestPerson p : list ) {
-			if(p.getTel().equals(tel)) {
-				list.remove(p);
-				break; 
-			}
-		}
-		clearTextField();
-		show();
-	}
-	void searchTel() {
-		// 1. 사용자가 입력한 전번 얻어오기 
-		String tel = tfTel.getText();
-		// 2. ArrayList 의 각 TestPerson의 tel과 비교해서 같은지 
-		for(TestPerson p : list ) {
-			if(p.getTel().equals(tel)) {
-				// 3. 해당 person의 멤버값들을 각각 테스트필드에 출력 
-				tfName.setText(p.getName());
-				tfId.setText(p.getId());
-				tfTel.setText(p.getTel());
-				tfSex.setText(p.getGender());
-				tfAge.setText(String.valueOf(p.getAge()));
-				tfHome.setText(p.getHome());
-			}
-		}
-	}
-	public static void main(String[] args) {
-		InfoTest2 it = new InfoTest2();
-		it.addLayout();
-		it.eventProc();
-
-	}
-
+      
+      b_search = new JButton("Search");
+      b_show = new JButton("Show");
+      b_add = new JButton("Add");
+      b_modify = new JButton("Modify");
+      b_delete = new JButton("Delete");
+      b_print = new JButton("Print");
+      b_exit = new JButton("Exit");
+   }
+   
+   //3. 화면 붙이기 및 화면 출력
+   void addLayout() {
+      f.setLayout(new BorderLayout());
+      
+      //패널의 기본 형은 FlowLayout
+      JPanel tf_p1 = new JPanel();
+      //패널 레이 아웃 형은 GridLayout 형으로 변경.
+      tf_p1.setLayout(new GridLayout(7, 2));
+      tf_p1.add(new JLabel("Name"));
+      tf_p1.add(tf_name);
+      tf_p1.add(new JLabel("Id"));
+      tf_p1.add(tf_id);
+      tf_p1.add(new JLabel("Tel"));
+      tf_p1.add(tf_tel);
+      tf_p1.add(new JLabel("E_mail"));
+      tf_p1.add(tf_email);
+      tf_p1.add(new JLabel("성별"));
+      tf_p1.add(tf_sex);
+      tf_p1.add(new JLabel("나이"));
+      tf_p1.add(tf_age);
+      tf_p1.add(new JLabel("주소"));
+      tf_p1.add(tf_address);
+      f.add(tf_p1, BorderLayout.WEST);
+      
+      f.add(ta1, BorderLayout.CENTER);
+      
+      JPanel b_p1 = new JPanel();
+      b_p1.setLayout(new GridLayout(1, 7));
+      b_p1.add(b_search);
+      b_p1.add(b_show);
+      b_p1.add(b_add);
+      b_p1.add(b_modify);
+      b_p1.add(b_delete);
+      b_p1.add(b_print);
+      b_p1.add(b_exit);
+      f.add(b_p1, BorderLayout.SOUTH);
+      
+      //4. 화면에 출력 
+      f.setSize(700, 500);
+      f.setVisible(true);
+      
+      //화면 닫고 프로세스 CLOSE 하겠다.
+      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   }//end of addLayout()
+   
+   void eventConnec(){
+      //MouseListener를 상속받은 MyHandler 클래스 객체 생성 >>> 메모리 상 업로드
+      MyHandler event1 = new MyHandler();
+      //b_exit 버튼과 이벤트 연결
+      b_exit.addMouseListener(event1);
+   }
+   
+   //메소드가 두 개 이상인 경우, 필요없는 MouseListener 자체를 implements 하지 말고
+//   class MyHandler implements MouseListener{
+   
+   //하기와 같이 MouseListener를 implements 하여 중간에 만들어진 MouseAdapter 를 상속하면
+   //하나의 메소드 오버라이딩 해도 됨.
+   
+   //그럼에도 불구하고 왜 interface를 구현(implements) 하는 방법을 지향하나?
+   
+   //인터페이스를 구현하는 경우에는, 무조건 동일 메소드를 오버라이딩 하지 않으면 에러가 나지만
+   //중간 클래스를 상속받은 경우에는, 메소드 상속시 오타를 발견할 확률이 매우 적다.
+   
+   //따라서 지향하는 코딩 순서는
+   //1. 중간 implements 클래스가 존재하는 지 확인.
+   //2. interface를 구현(implements) 한다.
+   //3. 그 후 중간 implements 클래스를 extends(상속).
+   
+   class MyHandler extends MouseAdapter{
+      @Override
+      public void mouseClicked(MouseEvent e) {
+         Object obj1 = e.getSource();
+         if(obj1 == b_exit) {
+            System.exit(0);
+         }
+      }
+   }
+   
+   //interface를 implements한 클래스를 
+   class IdFocus extends FocusAdapter{
+      
+   }
+   
+   public static void main(String[] args) {
+	   InfoTest2 frame = new InfoTest2();
+      frame.addLayout();
+      frame.eventConnec();
+   }
 }
+   
