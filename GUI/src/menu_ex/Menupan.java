@@ -16,7 +16,6 @@ public class Menupan extends JFrame {
 
 	// 한신포차 메뉴 이미지 블럭 
 
-	
 	JFrame scr;
 	JTextField tf;
 	JTextArea ta;
@@ -36,7 +35,6 @@ public class Menupan extends JFrame {
 		anju	= new Anju();
 		drink	= new Drink();
 		// 탭팬에 올라갈 객체 생성 필요 
-
 
 		tf = new JTextField( 30);
 		ta = new JTextArea(10,30);

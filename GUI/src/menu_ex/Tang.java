@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 import menu_ex.Menupan.BtnHdlr;
 
-public class Tang extends JPanel implements ActionListener {
+public class Tang extends JPanel  {
 
 	//Menupan parent;
 	JButton bmenu1, bmenu2, bmenu3;
@@ -35,13 +35,5 @@ public class Tang extends JPanel implements ActionListener {
 	}
 
 
-	public void ActionListener(BtnHdlr evt) {
-		Object obj= evt.getSource();					 // ActionEvent e의 오브젝트를 나눠서 이벤트 발생을 구분 
-		if(obj == bmenu1) {
-			String msg = bmenu1.getText();
-			JOptionPane.showMessageDialog(null,msg + " 버튼 이벤트 발생");
 
-		}
-
-	}
 }
