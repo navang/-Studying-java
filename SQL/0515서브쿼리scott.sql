@@ -146,10 +146,8 @@ INSERT INTO emp(empno, ename, sal, deptno ) VALUES (8890, '·¹µåÈ«' , 10300, 20);
 --½ÃÄö½º 
 CREATE SEQUENCE seq_emp_empno
               start with 5000;
-
 INSERT INTO emp(empno, ename, deptno) VALUES(seq_emp_empno.nextval, 'È«3', 10);
 SELECT  * FROM emp;
-
 select seq_emp_empno.currval FROM dual;
 
 

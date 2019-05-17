@@ -1,0 +1,7 @@
+
+DELETE FROM v_emp_info WHERE empno=8888;
+SELECT * FROM v_emp_info;
+SELECT * FROM emp; 
+
+SELECT ROWNUM , empno, ename, job, rowid 
+from emp; 
