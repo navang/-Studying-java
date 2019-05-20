@@ -1,4 +1,4 @@
-package emp.oracle;
+package emp.oracle2;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class InsertTest {
+public class UpdateTest {
 
 	public static void main(String[] args) {
 
@@ -34,24 +34,25 @@ public class InsertTest {
 		// 6. 닫기
 		try {
 			int empno = 6789;
-			String ename = "갓갓갓";
-			int sal = 9000; 
-			int deptno = 30;
-			String job= "IT"; 
+			String ename = "혹숙자";
+			int sal = 12000; 
+			int deptno = 20;
+			String job= "개발"; 
 			
-			String sql= "INSERT INTO emp(empno, ename, sal, deptno, job) "
-					+ " VALUES(?,?,?,?,?)";
-			
+			String sql= "UPDATE emp SET ename=?, sal=? , deptno=? , job=? "
+					+ " WHERE empno=?";
+					 
 			
 			// String sql = "UPDATE emp SET sal=60000 WHERE empno=8520";
 			System.out.println(sql);
 			PreparedStatement st = con.prepareStatement(sql);
 			// 
-			st.setInt(1, empno);
-			st.setString(2, ename);
-			st.setInt(3, sal);
-			st.setInt(4, deptno);
-			st.setString(5, job);
+		
+			st.setString(1, ename);
+			st.setInt(2, sal);
+			st.setInt(3, deptno);
+			st.setString(4, job);
+			st.setInt(5, empno);
 			// int result = st.executeUpdate(sql);
 			int result = st.executeUpdate();
 			st.close();
