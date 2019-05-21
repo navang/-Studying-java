@@ -45,7 +45,7 @@ class InfoView implements ActionListener{
 	//########################################
 	// 1. business logic를 실행하는 클래스 변수 선언
 	InfoModelimpl db = null;
-
+	//InfoMySQLImpl db = null;
 
 
 	//-----------------------------------------
@@ -92,6 +92,7 @@ class InfoView implements ActionListener{
 		// 2. business logic 역할을 하는 클래스 객체 생성
 		try {
 			db = new InfoModelimpl();
+		//	db = new InfoMySQLImpl();
 			ta.setText("디비연결성공");
 
 
@@ -305,7 +306,7 @@ class InfoView implements ActionListener{
 			ta.setText("입력실패" + e.getMessage());
 		}
 
-	}
+	} 
 	public void updateData() {
 		InfoVO vo = new InfoVO();
 		vo.setName(tf_name.getText());

@@ -7,8 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class InfoModelimpl {
-
+public class InfoModelimpl implements InfoModel{ // 인터페이스에서 메소드 받음 
 
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@192.168.0.145:1521:orcl";
@@ -36,7 +35,7 @@ public class InfoModelimpl {
 		int iage = vo.getAge();
 		String ihome = vo.getHome();	
 		//3.SQL 문장 만들기 (*****)
-		
+	
 		String sql = "INSERT INTO infoview (iname, iid , itel, isex, iage, ihome) "
 				+ "VALUES(?,?,?,?,?,?)";
 
@@ -179,8 +178,7 @@ public class InfoModelimpl {
 				;
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		try {
-			//2.연결객체 얻어오기
+		try {			//2.연결객체 얻어오기
 			con = DriverManager.getConnection(url,user,pass);
 			//3.SQL 문장 만들기 (*****)
 			String sql = "SELECT * FROM infoview WHERE itel = ?";
