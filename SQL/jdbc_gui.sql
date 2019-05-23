@@ -9,4 +9,3 @@ ihome   varchar2(20)
 CONSTRAINT pk_infoview PRIMARY KEY (itel),
 CONSTRAINT ck_infoview CHECK ('³²','¿©') 
 );
-

@@ -18,7 +18,7 @@ public class CustomerModel implements CustomerDao{
 	
 	public CustomerModel() throws Exception{
 	 	// 1. 드라이버로딩
-		Class.forName(driver);
+		OracleCon.getInstance();
 	}
 	
 	public void insertCustomer(Customer vo) throws Exception{

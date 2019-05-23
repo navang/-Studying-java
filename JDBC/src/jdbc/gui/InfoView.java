@@ -289,7 +289,7 @@ class InfoView implements ActionListener{
 	}
 	// 1. 각 텍스트필드에서 값을 얻어옴
 	// 3. Database 파일의 modify() 함수의 인자로 값을 넘겨줌
-	public void insertData() {
+	public void insertData() { 
 		InfoVO vo = new InfoVO();
 		vo.setName(tf_name.getText());
 		vo.setId(tf_id.getText());
