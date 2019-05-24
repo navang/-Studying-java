@@ -39,6 +39,7 @@ public class VideoView extends JPanel
 
 	JComboBox	comVideoSearch;
 	JTextField	tfVideoSearch;
+	
 	JTable		tableVideo;
 	
 	VideoTableModel tbModelVideo;

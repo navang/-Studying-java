@@ -361,7 +361,7 @@ public class Cinemaview_emp extends JPanel
 				 
 				 
 			// 3. ta좌석 가격
-				 taAll = new JTextArea();
+				 taAll = new JTextArea(20,20);
 				
 			// 4. tf 좌석 합계
 				 tfPrice = new JTextField();
@@ -377,14 +377,13 @@ public class Cinemaview_emp extends JPanel
 				
 				 
 				 	//WEST 
-				 
-				 	JPanel Seat = new JPanel();
+				 	JPanel Seat = new JPanel();   // 영화관 패널 
 				 	 Seat.setBackground(Color.black);
 				     Seat.setBorder(new TitledBorder("좌석"));
 				 	 	
 				 		// 좌석 버튼 추가 
 				 		
-				 		Seat.setLayout(new GridLayout(7,13,7,7));
+				 		Seat.setLayout(new GridLayout(7,13,7,7)); // 영화관 좌석 그리드 붙은 패널
 				 		// a0 
 				 		
 				 		Seat.add(JBnull1);
@@ -494,35 +493,42 @@ public class Cinemaview_emp extends JPanel
 				 	JPanel Selection = new JPanel();
 					Selection.setBorder(new TitledBorder("계산"));
 				 		
-						// 영화, 시간 올라갈 패널
-						JPanel Sel_combox = new JPanel();
-						Sel_combox.setBorder(new TitledBorder("1"));
+						JPanel JpSel = new JPanel();
 						
-						Sel_combox.setLayout(new GridLayout(2,2));
-						Sel_combox.add(new JLabel("영화 선택"));
-						Sel_combox.add(comMovie);
-						Sel_combox.add(new JLabel("시간 선택"));
-						Sel_combox.add(comTime);
 						
-						// e열 6번 8000원 올라갈 패널
-						JPanel Sel_Seat = new JPanel();
-						Sel_Seat.setBorder(new TitledBorder("2"));
+							// 영화, 시간 올라갈 패널
+							JPanel Sel_combox = new JPanel();
+							Sel_combox.setBorder(new TitledBorder("1"));
+						
+							Sel_combox.setLayout(new GridLayout(2,2));
+							Sel_combox.add(new JLabel("영화 선택"));
+							Sel_combox.add(comMovie);
+							Sel_combox.add(new JLabel("시간 선택"));
+							Sel_combox.add(comTime);
+						
+							// e열 6번 8000원 올라갈 패널
+							JPanel Sel_Seat = new JPanel();
+							Sel_Seat.setBorder(new TitledBorder("2"));
 						
 						Sel_Seat.setLayout(new BorderLayout());
 						Sel_Seat.add(taAll , BorderLayout.CENTER);
 						Sel_Seat.add(tfPrice , BorderLayout.SOUTH);
 						
+					
+						JpSel.setLayout(new BorderLayout());
+						JpSel.add(Sel_combox , BorderLayout.NORTH);
+						JpSel.add(Sel_Seat , BorderLayout.CENTER);	
+						
 					// 패널 추가 그리드 3,1	
-					Selection.setLayout(new GridLayout(3,1));
-					Selection.add(Sel_combox);
-					Selection.add(Sel_Seat);	
-					Selection.add(JbDone);
+					Selection.setLayout(new BorderLayout());
+					Selection.add(JpSel , BorderLayout.NORTH);
+					Selection.add(JbDone , BorderLayout.CENTER);
 				
 					
 				 // 2분할 
-				 Cinemaview.setLayout(new GridLayout(1,2));
-				 Cinemaview.add( Seat ); 
-				 Cinemaview.add( Selection );
+				 Cinemaview.setLayout(new BorderLayout());
+				 Cinemaview.add( Seat, BorderLayout.CENTER ); 
+				 Cinemaview.add( Selection , BorderLayout.EAST);
 				 	
 				 setLayout(new BorderLayout());
 				 add(Cinemaview, BorderLayout.CENTER);
