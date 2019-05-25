@@ -162,7 +162,7 @@ public class VideoView extends JPanel
 	}
 	
 	// 비디오현황검색
-		public void searchVideo(){
+	public void searchVideo(){
 			//JOptionPane.showMessageDialog(null, "검색");
 			int sel = comVideoSearch.getSelectedIndex();
 			String word = tfVideoSearch.getText();
@@ -178,7 +178,6 @@ public class VideoView extends JPanel
 			
 		}
 		
-	
 	//  화면설계 메소드
 	public void addLayout(){
 		//멤버변수의 객체 생성

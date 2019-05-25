@@ -62,6 +62,7 @@ public class VideoModel implements VideoDao{
 		con.close();
 	}
 	
+	//검색
 	public ArrayList searchVideo(int sel, String word) throws Exception {
 
 		String [] cols = {"TITLE","DIR"};
@@ -103,7 +104,7 @@ public class VideoModel implements VideoDao{
 return list;
 	}
 
-
+	//
 	public Video selectByPK(int vNum) {
 
 		return null;
