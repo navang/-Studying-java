@@ -16,7 +16,6 @@ public class view_emp extends JFrame
 		Cinemaview_emp = new Cinemaview_emp();
 		Snackview_emp = new Snackview_emp();
 
-
 		JTabbedPane  pane = new JTabbedPane();
 		pane.addTab("직원-좌석보기", Cinemaview_emp );
 		pane.addTab("직원-매점보기", Snackview_emp );

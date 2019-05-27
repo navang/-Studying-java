@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -13,6 +15,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
+
+import view.Snackview_emp.ButtonEventHandler;
 
 
 public class Cinemaview_emp extends JPanel 
@@ -73,6 +77,7 @@ public class Cinemaview_emp extends JPanel
 		
 		
 		// NULL 버튼 - 상호작용 X 빈칸채우기용 
+		
 		JButton JBnull1;
 		JButton JBnull2;
 		JButton JBnull3;
@@ -156,42 +161,32 @@ public class Cinemaview_emp extends JPanel
 	//	constructor method
 	public Cinemaview_emp(){
 		addLayout(); 	// 화면설계
-
-//		initStyle();
-
-//		eventProc();
-
-//		connectDB();	// DB연결
 	}
-
-//	public void connectDB(){	// DB연결
-
-//	public void eventProc(){
-//		ButtonEventHandler hdlr = new ButtonEventHandler();
-
+//		connectDB();	// DB연결
 
 /*
-		// 버튼 이벤트 핸들러 만들기
+	// 버튼 이벤트 핸들러 만들기
+	public void eventProc(){
+		ButtonEventHandler hdlr = new ButtonEventHandler();
+		JbDone.addActionListener(hdlr);
+/*
+		for (int i =0; i<3; i++ ) {	
+			for( int j=0; j<4; j++) {
+				// 메뉴 버튼 각 4개씩 
+				jbMenu[i][j].addActionListener(hdlr);
+			}
+		}
+	// 버튼 이벤트 핸들러 만들기
+	/*
 		class ButtonEventHandler implements ActionListener{
 			public void actionPerformed(ActionEvent ev){
 				Object o = ev.getSource();
-
-				if(o==b){  
-					// 
+			
+				if(o==/jbDone){  
+					
+					//JOptionPane.showMessageDialog(null,menuPrice);
 				}
-				else if(o==bV){  
-					// 
-				}
-				else if(o==b){  
-					// 
-				}
-				else if(o==tf){
-					//
-				}
-			}
-		}
 */
-
 	//	public void initStyle(){   // 입력하지 못하게 만듬.
 
 	//  화면설계 메소드

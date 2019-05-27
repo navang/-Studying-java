@@ -1,7 +1,7 @@
 package empmodel.vo;
 
 public class emp {
-	public class Menu {
+
 		String food; // 메뉴 
 		int fprice; // 가격 
 		int fcnt;	// 재고 
@@ -26,5 +26,5 @@ public class emp {
 			this.fcnt = fcnt;
 		}
 
-	}
+	
 }
