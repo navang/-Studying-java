@@ -1,17 +1,9 @@
 package menu_ex;
 
-import java.awt.BorderLayout;
-import java.awt.LayoutManager;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
+import javax.swing.*;
 public class Menupan extends JFrame {
 
 	// 한신포차 메뉴 이미지 블럭 
@@ -36,6 +28,7 @@ public class Menupan extends JFrame {
 		drink	= new Drink();
 		// 탭팬에 올라갈 객체 생성 필요 
 
+
 		tf = new JTextField( 30);
 		ta = new JTextArea(10,30);
 
@@ -53,7 +46,7 @@ public class Menupan extends JFrame {
 
 		add(ta, BorderLayout.SOUTH);
 		add(tf, BorderLayout.SOUTH);
-		add(pane,BorderLayout.CENTER);; 
+		add(pane,BorderLayout.CENTER);
 		JPanel ps =new JPanel();// 패널생성
 		JPanel pc =new JPanel();// 탭팬이 올라갈 패널
 		ps.setLayout(new BorderLayout());
@@ -72,28 +65,12 @@ public class Menupan extends JFrame {
 
 	// answer에 각각의 값을 각 버튼에 지정 
 	void eventProc () {
-		BtnHdlr evt = new BtnHdlr();
-		tang.ActionListener(evt);
-		anju.ActionListener(evt);
-		drink.ActionListener(evt);
-		
-		tf.addActionListener(evt);
-	
 
 	}
-	
-
 	class BtnHdlr implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-		
-		}
-
-		public Object getSource() {
 			// TODO Auto-generated method stub
-			return tang;
 		}
-
-	
 	}
 	public static void main(String[] args) {
 		Menupan my = new Menupan();
