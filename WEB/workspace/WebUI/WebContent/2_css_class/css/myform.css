@@ -83,15 +83,16 @@ form label {
 	width: 110px;
 }
 				
-form fieldset fieldset label {
+form fieldset  label {
 	background:none no-repeat left 50%;
 	line-height: 20px;
 	padding: 0 0 0 30px;
+	
 	width: auto;
 }
 					
 					
-form fieldset fieldset label:hover {
+form fieldset label:hover {
 	cursor: pointer;
 }
 				
@@ -130,7 +131,7 @@ form button {
 	text-transform: uppercase;
 }
 					
-form button:hover {
-	background: #1e2506;
+form input:hover {
+	background: #bc000c;
 	cursor: pointer;
 }

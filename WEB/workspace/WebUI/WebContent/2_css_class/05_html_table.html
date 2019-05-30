@@ -2,8 +2,16 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>05_html_table.html</title>
 </head>
+<style>
+table { border: 3px solid orange;}
+#line_1 { color : red;}
+
+tr:nth-child(odd) { background:pink;}
+tr:hober { background : peacorkblue;}
+
+</style>
 <body>
 <!-- 
 <table border="2">
@@ -14,15 +22,15 @@
  -->
 <table border="2"> <!--  6* 7  -->
 
-	<tr><td colspan="2">부서명</td><td>전화번호</td><td>팩스번호</td></tr>
-	<tr><td colspan="2">종합상황실</td><td>가</td><td>가</td></tr>
-	<tr><td rowspan='3'>비서실</td><td>비서실장</td><td>가</td><td rowspan='3'>가</td></tr>
-	<tr><td rowspan='2'>비서실</td><td rowspan='2'>가</td></tr>
-	<tr><td>가</td><td>가</td></tr>
-	<tr><td rowspan='3'>홍보실</td></tr>
-	<tr><td>홍보실장</td><td>가</td><td>가</td></tr>
-	<tr><td rowspan='2'>홍보부</td><td>가</td><td>가</td></tr>
-	<tr><td>가</td><td>가</td></tr>
+	<tr id="line_1"><td  colspan="2">부서명</td><td>전화번호</td><td>팩스번호</td></tr>
+	<tr><td colspan="2">종합상황실</td><td>4</td><td>2</td></tr>
+	<tr><td rowspan='3'>비서실</td><td>비서실장</td><td>3</td><td rowspan='3'>1</td></tr>
+	<tr><td rowspan='2'>비서실</td><td rowspan='2'>5</td></tr>
+	<tr></tr>
+	<tr><td rowspan='4'>홍보실</td></tr>
+	<tr><td>홍보실장</td><td>가</td><td>3</td></tr>
+	<tr><td rowspan='2'>홍보부</td><td>1</td><td>2</td></tr>
+	<tr><td><td>4</td></tr>
 	
 </table>
 

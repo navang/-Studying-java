@@ -3,6 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Positioning</title>
+<style type="text/css">
+ 	#header {border: 3px dotted red;}
+ 	#left {float:left; border: 3px dotted black; width:220px; height:600px;}
+ 	#content {float:right; border: 3px dotted red; width:600px; height:600px;}
+ 	#footer {clear:both; border: 3px dotted blue;}
+ 	
+</style>
+
+<style type="text/css" media="screen and (max-width:850px)">
+	#left{display:none;}
+	#content { float:left;}
+	
+	
+</style>
+
+<style type="text/css" media='print'>
+	#header, #left ,#footer {display:none;}
+	#content{float:left;}
+
+</style>
+
+
 </head>
 
 <body>
