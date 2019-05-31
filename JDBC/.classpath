@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="D:/mywork/java/workapace_git/JDBC/libs/jcommon-1.0.23.jar"/>
 	<classpathentry kind="lib" path="D:/mywork/java/workapace_git/JDBC/libs/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="D:/mywork/java/workapace_git/JDBC/libs/jsoup-1.12.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

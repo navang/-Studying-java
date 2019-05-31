@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko-kr">
+
+<style>
+h2 {
+	
+}
+
+body {
+	background-image:linear-gradient(30deg,#f8bcff,#d8d8d8);
+	
+
+}
+
+#header {
+	float: left;
+}
+
+#header2{
+	float: right;
+}
+
+#rotate1 {
+	
+text-align:center;
+float:center;
+	
+	
+	transform: rotate(90deg);
+	margin:160px;
+	margin-top:0px;
+	margin-bottom:0px;
+	}
+
+
+
+div nth-of-type (1) {
+	visibility: hidden;
+}
+</style>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부트스트랩</title>
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+
+
+
+</head>
+
+
+<body>
+		<ul id='header' class='nav nav-tabs '>
+		<li><a href="#home" data-toggle="tab">선글라스</a></li>
+		<li><a href="#tab1" data-toggle="tab">안경</a></li>
+</ul>
+		
+
+
+
+			<div id='rotate1' class="container">
+
+
+				<div id="carousel-example-generic" class='carousel slide'>
+					<!-- Indicators -->
+					<ol class='carousel-indicators'>
+						<li data-target="#carousel-example-generic" data-slide-to="0"
+							class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+						
+			
+					</ol>
+
+					<!-- Carousel items -->
+					<div  class='carousel-inner'>
+						<div class="item active">
+							<img src="./images/genmon1.jpg" alt="First slide">
+						</div>
+						<div class="item">
+							<img src="./images/genmon2.jpg" alt="Second slide">
+						</div>
+						<div class="item">
+							<img src="./images/genmon3.jpg" alt="Third slide">
+						</div>
+							<div class="item">
+							<img src="./images/genmon4.jpg" alt="forth slide">
+						</div>
+							<div class="item">
+							<img src="./images/genmon5.jpg" alt="fivth slide">
+						
+					</div>
+
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel-example-generic"
+						data-slide="prev"> <span class="icon-prev"></span>
+					</a> <a class="right carousel-control" href="#carousel-example-generic"
+						data-slide="next"> <span class="icon-next"></span>
+					</a>
+				</div>
+			</div>
+			
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel-example-generic"
+						data-slide="prev"> <span class="icon-prev"></span>
+					</a> <a class="right carousel-control" href="#carousel-example-generic"
+						data-slide="next"> <span class="icon-next"></span>
+					</a>
+				</div>
+			</div>
+			
+			
+		<ul id='header2' class='nav nav-tabs '>
+			<li><a href="#tab2" data-toggle="tab">스토리</a></li>
+			<li><a href="#tab3" data-toggle="tab">매장</a></li>
+</ul>
+			
+			<div class='tab-content'>
+			<div class='tab-pane active block' id="home">
+				<h3>13월, 예측할 수 없는 세상</h3>
+				‘지구에 열 세 번째 달이 생긴다면?’ 이 호기심과 상상에서 출발한 젠틀몬스터의 2019 캠페인 ‘13’, 그 두번째 에피소드로 애니메이션 작가 Ugo Bienvenu와 함께 ‘예측불가한 세상’을 이야기합니다. 열 세 번째 달이 도래하고 그 어떤 것도 예측할 수 없는 상황 속에 놓인 인간. 어떠한 환경적 변화에 앞서 찾아올 인간 내면과 무의식의 변화. 현실과 판타지, 의식과 무의식의 세계를 넘나드는 생동감 넘치는 세편의 애니메이션을 감상해보세요. 
+			</div>
+			<div class='tab-pane' id="tab1">
+				<h3>2</h3>
+				내용
+			</div>
+		<div class='tab-pane' id="tab2">
+				<h3>3</h3>
+				내용
+			</div>
+			<div class='tab-pane' id="tab3">
+				<h3>4</h3>
+				내용
+			</div>
+	
+			
+			
+
+			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+			<script
+				src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+			<!-- Include all compiled plugins (below), or include individual files as needed -->
+			<script src="./js/bootstrap.min.js"></script>
+			<script>
+      $('.carousel').carousel({
+    	  interval:4000
+      })
+    </script>
+</body>
+</html>
