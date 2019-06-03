@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>6_date.html</title>
+
+<script type="text/javascript">
+	
+		//var d = new Date('2019/06/02');
+		
+		var d = new Date();
+		d.setFullYear(2019);
+		d.setMonth(5); // 0부터 1월 
+		d.setDate(3);
+			
+		document.write( d + '<br/>');
+		document.write( d.toLocaleString() + '<br/>');
+		document.write( d.toDateString() + '<br/>');
+		document.write( d.toString() + '<br/>');
+	
+		document.write( typeof(d) + '<br/>');
+		document.write( d.getFullYear() + '<br/>'); //full 안하면 1900년 기준
+		document.write( d.getMonth() + '<br/>'); // 1~11 
+		document.write( d.getDate() + '<br/>'); // 날짜
+		document.write( d.getDay() + '<br/>'); // 요일 0(일요일)~7(토요일)
+				// 10일전 
+		d.setDate( d.getDate() - 10 );				
+		document.write( d.toDateString() + '<br/>');
+				// 10개월전
+		d.setMonth( d.getMonth() - 10 );
+		document.write( d.toDateString() + '<br/>');
+				// 전달의 마지막일 
+		d.setDate(0);
+		document.write( d.toDateString() + '<br/>');
+		
+		// 시분초 
+		document.write( d.getHours() + '<br/>');
+		document.write( d.getMinutes() + '<br/>');
+		document.write( d.getSeconds() + '<br/>');
+
+
+
+
+		</script>
+</head>
+<body>
+
+</body>
+</html>

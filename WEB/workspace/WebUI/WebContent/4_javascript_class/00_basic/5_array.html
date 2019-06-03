@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>5_array.html</title>
+<script type="text/javascript">
+	var arr = ['지민', '뷔', '정국', '랩몬', '제이홈'];
+	document.write(arr + '<br/>');
+	document.write(arr.join('/') + '<br/>'); // 지민/뷔/정국 ... 
+	document.write(arr.slice(3) + '<br/>'); // 렙몬 제이홈
+	document.write(arr.slice(1,3) + '<br/>'); // 뷔 정국
+	
+	document.write(arr.pop() + '<br/>'); // 제이홈이 빠짐
+	document.write(arr + '<br/>'); // 지민 뷔 정국 랩몬 
+	document.write(arr.push('방탄') + '<br/>'); // 지민 뷔 정국 랩몬 , 방탄 
+	document.write(arr + '<br/>'); //지민 뷔 정국 랩몬 , 방탄 
+	document.write(arr.shift() + '<br/>'); // 지민이빠짐
+	document.write(arr + '<br/>'); //지민이빠지고 결과
+	
+	document.write(arr.reverse() + '<br/>'); // 역순 (원본 영향 0)
+	document.write(arr + '<br/>');
+	document.write(arr.sort() + '<br/>'); // 가나다  abc 정렬  (원본 영향 0)
+	document.write(arr + '<br/>');
+	
+	var temp = ['슈가','아무개'];
+	document.write(arr.concat(temp) + '<br/>'); // 
+	document.write(arr + '<br/>');
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

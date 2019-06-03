@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+//1 . 형변환
+
+var n = '0770';
+document.write ( Number(n) + '<br/>');
+document.write ( parseFloat(n) + '<br/>');
+document.write ( parseInt(n) + '<br/>');
+
+var n = '123abc';
+document.write ( Number(n) + '<br/>');
+document.write ( parseFloat(n) + '<br/>');
+document.write ( parseInt(n) + '<br/>');
+
+//연산 후 형변환 
+document.write( 123 + "4"+ '<br/>'); // 숫자 + 문자열 -> 문자열
+document.write( 123 - "4"+ '<br/>'); // 숫자 - 문자열 -> 숫자
+
+document.write( typeof(123 + "4" + '<br/>')); 
+document.write( typeof(123 - "4" + '<br/>'));
+
+// 3. 요긴한 함수 . 악마 함수
+var str = 'alert("안녕하세요")';
+alert(str);
+eval(str); // 코드화 
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

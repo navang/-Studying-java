@@ -1,0 +1,41 @@
+<!--  이번달 달력을 출력하세요 (javaScript 이용)  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+<!--5*5 -->
+document.write("<table border='1'>");
+
+
+for (var j=1; j<=7; j++) {	
+	var d = new Date();	
+	d.setDate(j-6);
+	document.write("<td>" + d.toDateString().slice(0,3) + "</td>");
+	}
+	
+var k=1;
+for( var i=1; i<=6; i++){
+	document.write("<tr>");
+	for (var j=1; j<=7; j++ ,k++) {
+		if(i == 1 && j <= 6){
+		document.write("<td>" + "</td>" );
+		}else{
+		document.write("<td>"+ (k-6)+ "</td>");
+		}	
+		if (k == 36){
+			break;		
+		}
+	}document.write("</tr>");	
+}document.write("</table>");
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
