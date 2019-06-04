@@ -3,6 +3,16 @@
  */
 
 window.onload = function (){
+	
+	var td = document.getElementsByClassName('menu');
+	for(var i=0; i<td.length; i++ ){
+		alert(i);
+		td[i].onclick = function(){
+			//alert(i);
+			alert(this.childNodep[0].nodeValue + 
+					this.childNodep[1].nodeValue )
+		}
+	}
 
 	var price = new Array();
 	var content = new Array();

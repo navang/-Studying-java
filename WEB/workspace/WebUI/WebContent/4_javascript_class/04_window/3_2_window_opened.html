@@ -4,9 +4,25 @@
 <meta charset="UTF-8">
 <title> 새로 열려진 창 </title>
 <script type="text/javascript">
-	<!--
+
+	window.onload = function(){
+		var rds = document.frm.site;
+		for ( var i=0; i<rds.length; i++){
+			rds[i].onclick = changeSite;
+		} 
+		function changeSite(){
+			switch(rds.value){
+			// opener 열어준애 찾기 
+				case "0" :  opener.location.href ='http://www.daum.net'	; break;
+				case "1" :  opener.location.href ='http://www.naver.com'; break;
+				case "2" :  opener.location.href ='http://www.nate.com'	; break;
+			}
+			window.close(); // 자신 창 닫기
+		}
+		
+	}
 			
-	//-->
+
 </script>
 </head>
 <body>
