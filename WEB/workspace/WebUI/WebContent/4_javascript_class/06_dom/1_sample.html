@@ -4,6 +4,32 @@
 <meta charset="UTF-8">
 <title>DOM에서 노드 검색 방법</title>
 <script type="text/javascript">
+window.onload = function(){
+	document.getElementById('btn').onclick = function(){
+		var result = document.getElementById('result');
+		
+		// 1. id로 얻어오기 
+		//var name = document.getElementById('name');
+		//var name = document.querySelector('#name');
+		//result.innerHTML = name.value + 'id';
+		
+		//2. classname 으로 얻어오기 
+		//var name = document.getElementsByClassName('cname');
+		var name = document.querySelectorAll('.cname');
+		result.innerHTML = name[0].value + "classname";
+		
+		//3. tagname 으로 얻어오기 
+		//var name = document.getElementsByTagName('input');
+		//result.innerHTML = name[0].value + "tagname";
+	
+		//4. 폼으로 얻어오기 
+		var name = document.fm.Name('input');
+		result.innerHTML = name[0].value + "form";
+	
+	
+	}
+}
+
   </script>
 </head>
 
