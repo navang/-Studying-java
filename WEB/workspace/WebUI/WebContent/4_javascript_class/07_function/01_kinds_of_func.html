@@ -4,6 +4,20 @@
 	<meta charset="UTF-8">
 	<title>자바스크립트 함수 만들기</title>
 	<script>
+	 // 1. function 명령어 - first() 완성
+	 function first(){
+		 var txt = document.getElementById('first');
+		 txt.style.backgroundColor='red';
+		 txt.style.color = 'yellow';
+	 }
+	 // 2. Function 생성자 - second() 완성
+	 var second = new Function("var txt = document.getElementById('second');txt.style.backgroundColor='blue';txt.style.color = 'red';")
+	 // 3. 함수리터럴 - third () 완성
+	 var third = function(){
+		 var txt = document.getElementById('third');
+		 txt.style.backgroundColor='blue';
+		 txt.style.color = 'red';
+	 }
 
 	</script>
 </head>

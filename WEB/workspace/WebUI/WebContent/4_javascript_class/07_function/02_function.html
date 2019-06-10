@@ -6,7 +6,41 @@
 </head>
 <body>
 	<script>
+	//###----function 명령은 정적인 구조
+	//###----함수리터럴(3)은 실행시 판단 ( 선언을 먼저해줘야  )
+	
+	//1. function 명령 **
+	document.write('삼각형의 넓이 :' + triangle(3,4) + "<br/>");
+	function triangle(base, height){
+		return base*height /2 ; 
+		}
+	
+	// 2.Function 생성자 이용 *잘안씀
+	var triangle2 = new Function('base','height','return base*height/2');
+	document.write('삼각형의 넓이 :' + triangle2(3,4) + "<br/>");
+	
+	// 3. 함수리터럴 (*리터럴 : 변수의 값) ** 
+	var triangle3 = function(base, height){
+		return base * height / 2 ; 
+	}
+	document.write('삼각형의 넓이 :' + triangle3(3,4) + "<br/>");
+	document.write('변수 : ' + triangle3 + "<br/>");
+	triangle3 = "문자로 변환";
+	document.write('변수 : ' + triangle3 + "<br/>");
+	
+//#### 3. 함수도 배열에 저장 
 
+	function doA(){
+		document.write('함수 A <br/>');
+}
+	function doB(){
+		document.write('함수 B <br/>');
+}
+		
+	var arr = [doA, doB];
+	document.write('함수배열: ' + arr +  '<br/>');
+	arr[0]();
+	arr[1]();
 	</script>
 </body>
 </html>

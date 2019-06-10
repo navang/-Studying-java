@@ -3,20 +3,37 @@
 <head>
 	<meta charset="UTF-8">
 	<title>고급 함수 </title>
-	<script type="text/javascript" src="js/arg_func.js"></script> <!-- <script/>은 버그인가 -->	
+	
 	<script type="text/javascript">
-	/* 함수이름도 인자가 될수 있다. 	*/
-	function testFunc(arg){
-		var data = document.frm.num;
-		if(arg=='sum'){
-			arrayProcess(data, sum);
-			alert('합계: ' + sumResult);
-		}else if( arg=='square'){
-			arrayProcess(data, square);
-			alert('제곱: ' + squareResult);
-			
+
+	/* ## 1. 함수이름은 다른함수의 인자가 될 수 있다. */ 
+	
+	function prt(key,value){
+		document.write(key + ':' + value + '<br/>');
+	}
+	
+	function arrayWalk(data, f){
+		for(var key in data){
+			f(key, data[key]);
 		}
 	}
+	var ary = ['ㅁ','ㄴ','ㅇ','ㄹ','ㅎ'];
+	arrayWalk(ary, prt);
+	
+	/* ## 2. 함수가 다른함수의 인자가 될 수 있다. */ 
+		function prt(key,value){
+		document.write(key + ':' + value + '<br/>');
+	}
+	
+	function arrayWalk(data, f){
+		for(var key in data){
+			f(key, data[key]);
+		}
+	}
+	var ary = ['ㅁ','ㄴ','ㅇ','ㄹ','r'];
+	arrayWalk(ary, function(key,value){//***//
+		document.write(key + ':' + value + '<br/>');
+	});
 	
 	
 	</script>

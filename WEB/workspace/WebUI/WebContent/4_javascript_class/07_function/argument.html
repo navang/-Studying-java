@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수의 인자</title>
+<script type="text/javascript">
+function multiple(first, second){
+	return first*second;
+}
+
+document.write('곱1:' + multiple(2,4) + "<br/>");
+document.write('곱2:' + multiple(2,3,4) + "<br/>");
+document.write('곱3:' + multiple(2) + "<br/>");
+//인자의 개수를 확인하지않는다 . 
+
+
+function mul(args){
+	return args.first * args.second;
+}
+document.write('곱:' + mul({first:3, second:4}) + '<br/>');
+
+// 3. arguments  특별한 개체 
+function func(){
+	console.log(arguments);
+}
+func(1);
+func(2,3);
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>
