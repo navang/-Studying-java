@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript" src='../lib/jquery-3.4.1.min.js'></script>
+<script type="text/javascript">
+// $(object)move.
+// 1. 방식
+/*
+	$(document).ready(function(){
+	$('#here').hide();	
+	})
+*/
+// 2. jquery 전용문법
+/*
+	jQuery(function(){
+	$('#here').hide();
+	})
+	*/
+// 3. 2번의 축약형
+
+	$(function(){
+		$('#here').hide();
+	})
+</script>
+</head>
+<body>
+
+	<div id='here'>오늘은 화요일</div>
+
+</body>
+</html>

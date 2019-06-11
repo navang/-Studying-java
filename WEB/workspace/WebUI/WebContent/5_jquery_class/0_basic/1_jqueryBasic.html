@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title> 첫 연습 </title>
+
+<style type="text/css">
+	#here {
+		position:absolute;
+		top:0;
+		left:0;
+	
+	}
+</style>
+
+<script type="text/javascript" src='../lib/jquery-3.4.1.min.js'></script>
+<script type="text/javascript">
+		$(function(){
+			var here = $('#here');
+			
+		// 	here.fadeOut(1000).fadeIn('slow');
+		
+		//	here.slideUp(1000).slideDown('slow');
+			
+			here.animate({top:200, left:400});
+			
+		var std = $('#student');
+		var n = std.find('#name'); // 변수명은 상관없지만 헷갈리니까
+		n.css({						// 객체(제이슨 구조로)
+		'background':'#bc000c',
+		'color' : '#ffffff',
+		'font-size':33
+		});
+		
+		//color : #ffffff
+		//font-size : 12px
+		
+		/*	$('#here').click(function(){
+				here.text('클릭하면 내용 변경 ')
+			});
+			here.mouseenter(function(){
+				here.text('마우스인 ');
+			});
+			here.mouseleave(function(){
+				here.text('마우스나감');
+			});
+			   //hover는 마우스 들어갈때, 나갈때를 설정하므로 인자값이 2개가 들어감
+		      here.hover(function(){
+		         here.css('border', '2px solid green');
+		      }, function(){
+		         here.css('border', '2px dashed red');
+		      });
+				
+			});
+			*/
+	});
+	
+</script>
+</head>
+<body>
+	
+
+	<div id="here">
+	아자아자 제이쿼리~~!!! 
+	</div>
+	
+	
+	<div id="student">
+		<div id="name">홍길동</div>
+		<div id="age">34</div>
+	</div>
+
+
+	
+</body>
+</html>
