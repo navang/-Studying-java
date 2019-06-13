@@ -3,8 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>메인페이지</title>
+<script type="text/javascript"   src="http://code.jquery.com/jquery-1.9.0.js"></script>
+<script type="text/javascript"   src="js/jquery.cookie.js"></script>
 <script type="text/javascript">
-window.open("9_promotion.html","","width=400, height=360");
+
+//지정된 쿠키값 얻어와서 해당값이 없을때만 창띄우기 
+
+$(function(){
+	
+	 if($.cookie('no_open')){
+		 
+	 }else{
+		window.open("9_promotion.html","","width=400, height=360");
+	 }
+});
+
 </script>
 </head>
 <body>

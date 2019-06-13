@@ -10,6 +10,21 @@
   <script type="text/javascript" src="js/jstorage.min.js"></script>
 
   <script type="text/javascript">
+  $(function(){
+	  // 스토리지에 저장된 내용을 화면에 출력
+	  $('#name').val($.jStorage.get('name'));
+	  <!--등록버튼이 눌렸을때-->
+	  $('#set').click(function(){ 
+		  $.jStorage.set('name', $('#name').val() );
+		  $.jStorage.set('memo', $('#memo').val() );
+	  });
+	  
+	  <!--삭제버튼이 눌렸을때-->
+	  $('#del').click(function(){ 
+		  $.jStorage.deletekey('name');
+		
+	  });
+  })
 
   </script>
 </head>

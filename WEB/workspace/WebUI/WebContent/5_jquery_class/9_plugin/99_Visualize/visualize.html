@@ -3,7 +3,25 @@
 <head>
 <meta charset="UTF-8" />
 <title>Visualize</title>
-<script type="text/javascript"  src="http://code.jquery.com/jquery-1.9.0.js"></script>
+
+<!--  1. css 연결 -->
+<link href='./css/visualize.css' type='text/css' rel='stylesheet'>
+<link href='./css/visualize-light.css' type='text/css' rel='stylesheet'>
+
+<!--  2. jquery libary -->
+<script type="text/javascript"  src="http://code.jquery.com/jquery-3.4.1.js"></script>
+
+<!--  3. plugin libary -->
+<script src='./js/visualize.jQuery.js' type="text/javascript"></script>
+
+<script type="text/javascript">
+$(function(){
+	$('#data').visualize({type:'bar'});
+	$('#data').visualize({type:'area', width:'480px'});
+	$('#data').visualize({type:'pie' , pieLabelPos: 'outside'});
+	$('#data').visualize({type:'line'});
+})
+</script>
 
 </head>
 <body>

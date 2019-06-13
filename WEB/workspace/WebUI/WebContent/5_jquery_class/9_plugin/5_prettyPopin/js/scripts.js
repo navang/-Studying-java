@@ -1,3 +1,17 @@
 /**
  * 
  */
+
+$(function(){
+	$('a[rel=""prettyPopin]:eq(0)').prettyPopin({
+		width:500
+	});
+	$('a[rel=""prettyPopin]:eq(1)').prettyPopin({
+		width:500,
+		callback:function(){
+			alert('콜백');
+			
+		}
+	});
+	
+});
