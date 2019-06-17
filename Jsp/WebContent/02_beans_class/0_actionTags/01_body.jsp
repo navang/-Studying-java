@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title> 첫번째 페이지 </title>
+<title> header와 footer 삽입하기</title>
 </head>
 <body>
+		<!-- ##################  -->
+		<!-- 페이지 삽입  -->
+		<jsp:include page="01_header.jsp"/>
+
 		<hr><hr>
 		<!-- 메인 내용 시작  -->
 		
@@ -44,11 +48,12 @@
 		
 		<!-- 메인 내용 끝  -->
 		<hr><hr>
-    <!-- <a href="04_responseSecond.jsp">다음 페이지</a> -->
+		
+		<!-- ##################  -->
+		<!-- 페이지 삽입  -->
+	<jsp:include page="01_footer.jsp"/>
+		
 
-		<!-- #######  리다이렉트 페이지 이동  -->
-		<% response.sendRedirect("04_responseSecond.jsp"); %>
-		
-		
+
 </body>
 </html>
