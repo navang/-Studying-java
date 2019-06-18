@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="member.beans.*" %>
 <!-- 하나씩 천천히 도전합시다 -->
-<!-- 1, 폼의 입력값을 빈즈의 멤버변수 지정 -->
+<!-- 1. 폼의 입력값을 빈즈의 멤버변수 지정 -->
 <% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id ="m" class="member.beans.Member">
 	<jsp:setProperty name="m" property="*"/>

@@ -1,17 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-    
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> 회원가입  </title>
+<script src="../../lib/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-	function openWin(){
+
+		function openWin(){
 		var id = document.frm.id.value;
-		window.open("CheckId.jsp?userId="+id,"","width=200, height=150");
+		window.open("CheckId.jsp?userId="+id,"","width=400, height=100");
 	}
+	
+	
 </script>
 </head>
 <body>
@@ -25,7 +28,7 @@
 				<font color="blue">아이디</font>
 				</td>
 				<td width="100">
-				<input type="text" name="id">
+				<input type="text" name="id" id='idinput'>
 				<input type="button" value="중복확인" onclick="openWin()"><br/>
 				</td>
 			</tr>
