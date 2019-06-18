@@ -14,7 +14,7 @@
 </jsp:useBean>
 
 <% 
-		WriteMessageService.getInstance().write(m);
+		WriteMessageService.getInstance().write(m);     
 %>
 
     

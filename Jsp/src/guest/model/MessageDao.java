@@ -198,7 +198,7 @@ public class MessageDao {
           ps.setInt(1, messageID);
           ps.setString(2, password);
         
-          result=ps.executeUpdate();
+          result= ps.executeUpdate();
          
          return result;
       }catch( Exception ex ){

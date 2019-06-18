@@ -10,7 +10,7 @@
 $(function(){
 		$("input[type='button']").click(function(){
 			// 유효성 검사
-			alert("확인");
+			// alert("확인");
 			$('form[name="frm"]').submit();
 		});
 });
