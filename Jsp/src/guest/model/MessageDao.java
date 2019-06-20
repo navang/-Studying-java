@@ -16,9 +16,9 @@ public class MessageDao {
    
    // DB 연결시  관한 변수 
    private static final String    dbDriver   =   "oracle.jdbc.driver.OracleDriver";
-   private static final String      dbUrl      =   "jdbc:oracle:thin:@192.168.0.161:1521:orcl";
-   private static final String      dbUser      =   "dbtry";
-   private static final String      dbPass      =   "dbtry";
+   private static final String      dbUrl      =   "jdbc:oracle:thin:@192.168.0.244:1521:orcl";
+   private static final String      dbUser      =   "lsh";
+   private static final String      dbPass      =   "lsh";
    
    
    
@@ -96,7 +96,7 @@ public class MessageDao {
       try{
          // 1. 연결객체(Connection) 얻어오기
          Class.forName(dbDriver);
-         String sql ="SELECT * FROM GUESTTB";
+         String sql ="SELECT * FROM GUESTTB"; //ORDER BY MESSAGE_ID DSC
          // 2. sql 문장 만들기
          con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
          ps = con.prepareStatement(sql);
@@ -129,7 +129,7 @@ public class MessageDao {
    /* -------------------------------------------------------
     * 현재 페이지에 보여울 메세지 목록  얻어올 때
     */
-   public List<Message> selectList(int firstRow, int endRow) throws MessageException
+   public List<Message> selectList(int startRow, int endRow) throws MessageException
    {
       Connection          con = null;
       PreparedStatement ps = null;
@@ -138,12 +138,35 @@ public class MessageDao {
       boolean isEmpty = true;
       
       try{
+    	  
+    	   // 1. 연결객체(Connection) 얻어오기
+          Class.forName(dbDriver);
+          String sql ="SELECT A.message_id , A.guest_name , A.password, A.message FROM (SELECT ROW_NUMBER() OVER(ORDER BY MESSAGE_ID DESC) AS RNUM , MESSAGE_ID, GUEST_NAME, PASSWORD, MESSAGE FROM GuestTB C_GuestTB) A WHERE A.rnum BETWEEN ? AND ?"; //검색조건에 맞는 쿼리를 만들어야
+          // 2. sql 문장 만들기
+          con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+          ps = con.prepareStatement(sql);
+          ps.setInt(1, startRow); // 1 between 
+          ps.setInt(2, endRow);  // 3 
+          rs = ps.executeQuery();
+          while(rs.next()) {
+             //각 컬럼들의 값을 가져와서 Message의 property로 지정
+             //그 Message 객체를 ArrayList에 추가
+             Message m = new Message();
+             m.setMessageID(rs.getInt("MESSAGE_ID"));
+             m.setGuestName(rs.getString("GUEST_NAME"));
+             m.setPassword(rs.getString("PASSWORD"));
+             m.setMessage(rs.getString("MESSAGE"));
+             mList.add(m);
+             isEmpty = false;
+          }
+          
+          if( isEmpty ) return Collections.emptyList();
+          
+          return mList;
 
 
          
-         if( isEmpty ) return Collections.emptyList();
-         
-         return mList;
+        
       }catch( Exception ex ){
          throw new MessageException("방명록 ) DB에 목록 검색시 오류  : " + ex.toString() );   
       } finally{
@@ -166,7 +189,22 @@ public class MessageDao {
       int count = 0;
 
       try{
-
+    	   // 1. 연결객체(Connection) 얻어오기
+          Class.forName(dbDriver);
+          con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+          // 2. sql 문장 만들기
+          String sql ="SELECT COUNT(*) CNT FROM guestTB";
+          // 3. 전송객체 만들기
+          // 4. 전송하기
+          // 5. 결과받기 
+         
+          ps = con.prepareStatement(sql);
+          rs = ps.executeQuery();
+          if(rs.next()) {
+        	  count = rs.getInt("CNT");
+          }
+             
+            
          return  count;
          
       }catch( Exception ex ){
