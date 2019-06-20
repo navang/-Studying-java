@@ -85,23 +85,49 @@ $(function(){
 // 				width:30
 // 			});		
 			
-			$('#chart').append('<td width="50" align="center">' + $(data).find('temp').eq(i).html() + '</td>');
+			
+			
+		
+// 		var a	= $('#chart>td').eq(i).tempGauge({
+// 					borderColor:"black",
+// 					borderWidth: 4,
+// 					defaultTemp: 22,
+// 					fillColor:"red",
+// 					showLabel:true,
+// 					labelSize: 12,
+// 					maxTemp: 30,
+// 					minTmp:0,
+// 					width:30
+// 				});
+			
+			$('#chart').append('<td width="50" align="center">'+ $('td').eq(i).tempGauge({
+				borderColor:"black",
+				borderWidth: 4,
+				defaultTemp: 22,
+				fillColor:"red",
+				showLabel:true,
+				labelSize: 12,
+				maxTemp: 30,
+				minTmp:0,
+				width:30
+			}) +'</td>');
 			//시간
 			$('#graph').append('<td width="50" align="center">' + $(data).find('hour').eq(i).html() +'시'+ '</td>');
-		
+			
+			
 		} // for
 		
-					$('.tempGauge-demo').tempGauge({
-						borderColor:"black",
-						borderWidth: 4,
-						defaultTemp: 22,
-						fillColor:"red",
-						showLabel:true,
-						labelSize: 12,
-						maxTemp: 30,
-						minTmp:0,
-						width:30
-					});
+// 					$('#chart').tempGauge({
+// 						borderColor:"black",
+// 						borderWidth: 4,
+// 						defaultTemp: $(data).find('temp').eq(i).html(),
+// 						fillColor:"red",
+// 						showLabel:true,
+// 						labelSize: 12,
+// 						maxTemp: 30,
+// 						minTmp:0,
+// 						width:30
+// 					});`
 		
 		
 		
