@@ -44,10 +44,10 @@
 		
 		<!-- 메인 내용 끝  -->
 		<hr><hr>
-
+    <!-- <a href="04_responseSecond.jsp">다음 페이지</a> -->
 
 		<!-- #######  리다이렉트 페이지 이동  -->
-		
+		<% response.sendRedirect("04_responseSecond.jsp"); %>
 		
 		
 </body>

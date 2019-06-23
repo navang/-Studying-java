@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+   
 <%@ page import="shop.cart.Goods" %> 
 <%@ page import="java.util.*" %>
 
@@ -12,9 +12,13 @@
 	// 1. 세션에서 지정한 cart 속성값을 얻어와서 ArrayList 변수에 지정
 	// 2. null 이면 리턴 그렇지 않으면 세션값 얻어오기
 	// 3. 세션에서 속성을 제거한다
-
+	Object obj = session.getAttribute("cart");
+	if(obj==null)return;
+	glist = (ArrayList<Goods>)obj;
+	session.removeAttribute("cart");
 		
-%>		 
+		
+		%>		 
  
 <html>		
 <body bgcolor="white">

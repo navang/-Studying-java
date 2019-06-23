@@ -1,0 +1,23 @@
+1. db 구성 
+	상품테이블 product
+		상품번호 pk	pno
+		상품명	pname
+		가격		pprice
+		개수 		peach
+		이미지 경로 	ppath
+		
+	판매테이블 			sell
+		-판매번호pk	sno	
+		 상품번호 f		pno
+		 판매개수 		seach
+		 판매날짜		sdate
+		 
+		 
+2. 클래스 구성도
+
+	src폴더 하위
+		-model 단 
+		-service 단
+		
+		
+			
