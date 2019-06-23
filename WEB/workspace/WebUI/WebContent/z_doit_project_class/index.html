@@ -11,8 +11,7 @@
 <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>  <!-- bxSlider 플러그인 연동 -->
 <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script> <!-- UI 플러그인 연동 -->
 <script type="text/javascript" src="js/jquery.cookie.js"></script>  <!-- 쿠키 플러그인 연동 -->
-<script type="text/javascript" src="js/jquery_jw.js"></script> <!--  재우꺼 연결  -->
-
+<script type="text/javascript" src="js/jquery.js"></script>  <!-- 쿠키 플러그인 연동 -->
 
 </head>
 <body>
@@ -112,13 +111,46 @@
      </fieldset>
   </form>
   
-  <!--  ########				전체 메뉴					########  -->
+
+  <!--  ######################상단메뉴  ##################### -->
+   <div class = "topmenu">
+   <ul>
+   		<li>
+   		<a href = "#"><img src = "images/gnb_1_out.gif " alt = "홈"></a>
+   		</li>
+   		<li>
+   		<a href = "#"><img src = "images/gnb_2_out.gif " alt = "회사소개"></a>
+   		</li>
+   		<li>
+   		<a href = "#"><img src = "images/gnb_3_out.gif " alt = "도서목록"></a>
+   		</li>
+   		<li>
+   		<a href = "#"><img src = "images/gnb_4_out.gif " alt = "고객및저자문의"></a>
+   		</li>
+   		<li>
+   		<img src = "images/gnb.gif " alt = "채우기용" ></a>
+   		</li>
+   		<li>
+   		<img src = "images/gnb.gif " alt = "채우기용" ></a>
+   		</li>
+   		<li>
+   		<img src = "images/gnb.gif " alt = "채우기용"   height= "52"  width = "150"></a>
+   		</li>
+   		
+   
+   
+   </ul>
+   </div>
+   
+   
+     <!--  ########				전체 메뉴					########  -->
   <p id="total_btn">
       <a href="#">
         <img src="images/allmenu_btn_out.gif" alt="전체메뉴" />
       </a>
   </p>
   <div id="total_menu">
+  	<div id = "a1">
      <dl>
         <dt><img src="images/allmenu_title_1.gif" alt="홈" /></dt>
         <dd>
@@ -127,7 +159,10 @@
            </ul>
         </dd>
      </dl>
+     </div>
+     <div id = "a2">
      <dl>
+ 
         <dt><img src="images/allmenu_title_2.gif" alt="홈" /></dt>
         <dd>
            <ul>
@@ -137,6 +172,8 @@
            </ul>
         </dd>
      </dl>
+     </div>
+     <div id = "a3">
      <dl>
         <dt><img src="images/allmenu_title_1.gif" alt="홈" /></dt>
         <dd>
@@ -147,6 +184,8 @@
            </ul>
         </dd>
      </dl>
+     </div>
+     <div id = "a4">
      <dl>
         <dt><img src="images/allmenu_title_1.gif" alt="홈" /></dt>
         <dd>
@@ -158,6 +197,7 @@
            </ul>
         </dd>
      </dl>
+     </div>
      <p id="total_close">
         <a href="#">
             <img src="images/allmenu_close_btn.gif" alt="전체메뉴 닫기" />
@@ -169,9 +209,9 @@
   
   <!-- #######				날짜 출력			 ########-->
   <p id="date_wrap">
-      <span class="year"></span> 년
-      <span class="month"></span> 월
-      <span class="date"></span>일
+      <span class="year">0000</span> 년
+      <span class="month">00</span> 월
+      <span class="date">00</span>일
    </p>
 </div>
 <hr />
@@ -218,7 +258,7 @@
        </a>
      </p>
    </div>
-   
+  
    <!--  ########## 		탭메뉴		##########  -->
    <dl id="tabmenu">
      <dt class="tab_btn1">
