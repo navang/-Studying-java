@@ -11,9 +11,8 @@
 %>
 
 <%
-
 // Service에 getArticleList()함수를 호출하여 전체 메세지 레코드 검색 
- List <BoardRec> mList =  null; 
+List <BoardRec> mList =  null; 
 ListArticleService service = ListArticleService.getInstance();
 mList = service.getArticleList();
 %>
@@ -48,7 +47,7 @@ mList = service.getArticleList();
    %>     
       <tr>
          <td><%=rec.getArticleId() %></td>
-         <td><%=rec.getTitle() %></td>
+         <td><a href="Boardviw.jsp?article_id<%=rec.getArticleId() %>"><%=rec.getTitle() %></a></td>
          <td><%=rec.getWriterName() %></td>      
          <td><%=rec.getPostingDate() %></td>
          <td><%=rec.getReadCount() %></td>

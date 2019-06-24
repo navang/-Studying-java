@@ -25,7 +25,7 @@ public class UpdateProductService {
 	public void update( ProductRec rec ) throws ProductException
 	{
 		ProductDao pDao = ProductDao.getInstance();
-		pDao.updateProduct(rec);
+	//	pDao.updateProduct(rec);
 	
 	}
 }

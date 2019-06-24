@@ -155,7 +155,7 @@ public class BoardDao
 		  Connection        con = null;
 	      PreparedStatement ps = null;
 	      ResultSet rs = null;
-	      List<ProductRec> mList = new ArrayList<ProductRec>();
+	      List<BoardRec> mList = new ArrayList<BoardRec>();
 	      boolean isEmpty = true;
 		
 		try{
@@ -186,8 +186,6 @@ public class BoardDao
 		            isEmpty = false;
 	         }
 
-
-			
 			if( isEmpty ) return Collections.emptyList();
 			
 			return mList;
