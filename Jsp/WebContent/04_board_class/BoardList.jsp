@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="board.model.*, board.service.*" %>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.*" %>
 
 <%  //웹브라우저가 게시글 목록을 캐싱할 경우 새로운 글이 추가되더라도 새글이 목록에 안 보일 수 있기 때문에 설정
 	response.setHeader("Pragma","No-cache");		// HTTP 1.0 version
