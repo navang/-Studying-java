@@ -5,6 +5,7 @@ import java.util.List;
 import board.model.BoardDao;
 import board.model.BoardException;
 import board.model.BoardRec;
+import board.model.BoardDao;
 
 public class ListArticleService {
 	private static ListArticleService instance;
