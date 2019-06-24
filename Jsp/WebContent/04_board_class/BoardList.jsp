@@ -47,7 +47,16 @@ mList = service.getArticleList();
    %>     
       <tr>
          <td><%=rec.getArticleId() %></td>
-         <td><a href="Boardviw.jsp?article_id<%=rec.getArticleId() %>"><%=rec.getTitle() %></a></td>
+         <td>
+         	<% for(int f=0; f<rec.getLevel(); f++){%>
+         	&nbsp;
+         	<%} %> <!--level리턴값에 따라 공백을 준다 -->
+         	<% if(rec.getLevel() >0){ %>
+         		<img alt='' src='./imgs/board_re.gif'>
+         	<% }%>
+         	<a href="BoardView.jsp?article_id=<%=rec.getArticleId()%>"><%=rec.getTitle() %></a>
+         	<!-- 제목클릭시 위 링크로 가고 article_id를 가져옴  -->
+         </td>
          <td><%=rec.getWriterName() %></td>      
          <td><%=rec.getPostingDate() %></td>
          <td><%=rec.getReadCount() %></td>
@@ -58,6 +67,7 @@ mList = service.getArticleList();
       <tr>
          <td colspan="5">
             <a href="BoardInputForm.jsp">글쓰기</a>
+           
          </td>
       </tr>
    </table>

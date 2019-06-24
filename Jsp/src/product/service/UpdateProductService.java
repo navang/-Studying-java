@@ -1,5 +1,6 @@
 package product.service;
 
+import board.model.BoardDao;
 import product.model.ProductDao;
 import product.model.ProductException;
 import product.model.ProductRec;
@@ -22,10 +23,12 @@ public class UpdateProductService {
 		
 	}
 	
-	public void update( ProductRec rec ) throws ProductException
+	public int update( ProductRec rec ) throws ProductException
 	{
 		ProductDao pDao = ProductDao.getInstance();
-	//	pDao.updateProduct(rec);
+		int result = Integer.parseUnsignedInt().pDao.update(rec);
+		
+		return result;
 	
 	}
 }

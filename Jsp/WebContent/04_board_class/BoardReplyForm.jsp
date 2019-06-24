@@ -3,6 +3,7 @@
 
 <%
 	// 답변글의 부모 게시글의 번호를 넘겨받기
+	String pId= request.getParameter("article_id");
 	
 %>
     
@@ -15,12 +16,13 @@
  <body>
 	<h4> 답변 글 쓰기 </h4><br/>
 	
-	<form name='frm' method='post'>
-	작성자 : <input type='text'><br/><br/>
-	제  목 : <input type='text'><br/><br/>
-	내  용 : <textarea rows='10' cols='40'></textarea><br/><br/>
+	<form name='frm' method='get' action="BoardReply.jsp">
+	<input type='hidden' name='pId' value='<%=pId%>'/>
+	작성자 : <input type='text' name='writerName'><br/><br/>
+	제  목 : <input type='text' name='title'><br/><br/>
+	내  용 : <textarea rows='10' cols='40' name='content'></textarea><br/><br/>
 	패스워드(수정/삭제시 필요) :
-			 <input type='password'><br/><br/>
+			 <input type='password' name='password'><br/><br/>
 	<input type='submit' value='작성'>
 	<input type='reset' value='취소'>
 	</form>

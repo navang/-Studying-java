@@ -8,7 +8,7 @@
 %>
 
 <!--  1. 전 화면 입력값을 넘겨받아 BoardRec 클래스의 각 멤버필드에 지정 -->
-<<jsp:useBean id="m" class="board.model.BoardRec">
+<jsp:useBean id="m" class="board.model.BoardRec">
 	<jsp:setProperty name='m' property="*"/>
 </jsp:useBean>
 
@@ -18,7 +18,7 @@
 	//2. Service클래스에 write() 함수호출
 	
 	//3. 화면을 리다이렉트로 바꾸기//페이지를 바꿔서 중복 증가를 막자 
-	response.sendRedirect("BoardView.jsp=?article_id=" + result.getArticleId());
+	response.sendRedirect("BoardView.jsp?article_id=" + result.getArticleId());
 	
 %>
 

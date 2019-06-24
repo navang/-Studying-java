@@ -122,9 +122,13 @@ public class BoardDao
 	         ps.setString(6, rec.getContent());
 	        
 	         int result = ps.executeUpdate();
+	         
+	         
+	         
+	         
 	         if(result>0) {
 	        	 stmt = con.createStatement();
-	        	 stmt.execute("SELECT SEQ_ARTICLE_ID_ARTICLE.currval "
+	        	 rs=stmt.executeQuery("SELECT SEQ_ARTICLE_ID_ARTICLE.currval "
 	        	 		+ " FROM dual");
 	        	 if(rs.next()) {
 	        		 return rs.getInt(1); // 첫번째 칼럼
@@ -164,7 +168,7 @@ public class BoardDao
 	         // 2. sql 문장 만들기
 	         con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
 	         // 3. 전송객체 얻어오기
-	         String sql = "SELECT * FROM article";
+	         String sql = "SELECT * FROM article ORDER BY sequence_no DESC";
 	         // 4. 전송하기
 	         ps = con.prepareStatement(sql); 
 	        //5 결과집합 받아 결과를 groupId에 저장
@@ -204,7 +208,6 @@ public class BoardDao
 	{
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		
 		BoardRec rec = new BoardRec();
 		
 		try{
@@ -219,14 +222,15 @@ public class BoardDao
 	         ps.setInt(1, id);
 	         rs = ps.executeQuery();
 			if(rs.next()) {
+				rec.setArticleId(rs.getInt("article_id"));
 				rec.setTitle(rs.getString("title"));
 				rec.setWriterName(rs.getString("writer_name"));
-				rec.setPostingDate("posting_date");
+				rec.setPostingDate(rs.getString("posting_date"));
 				rec.setContent(rs.getString("content"));
 				rec.setReadCount(rs.getInt("read_count"));
+				rec.setGroupId(rs.getInt("group_id"));
+				rec.setSequenceNo(rs.getString("SEQUENCE_NO"));
 				
-				
-								
 			}		
 			
 			return rec;
@@ -274,9 +278,25 @@ public class BoardDao
 
 		PreparedStatement ps = null;
 		try{
+			// 1. 연결객체 얻어오기 
+			 Class.forName(dbDriver);
+	         // 2. sql 문장 만들기
+	         con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+	         // 3. 전송객체 얻어오기
+			String sql = "UPDATE article SET title=?, posting_date=sysdate, content=?  "
+					+ " WHERE PASSWORD=? and ARTICLE_ID=?";
+					
+			 ps = con.prepareStatement(sql);
+			
+			 ps.setString(1, rec.getTitle());
+		
+			 ps.setString(2, rec.getContent());
+			 ps.setString(3, rec.getPassword());
+			 ps.setInt(4, rec.getArticleId());
+			 int result=ps.executeUpdate();
+	       
+			return result; // 나중에 수정된 수를 리턴하시오.
 
-
-			return 0; // 나중에 수정된 수를 리턴하시오.
 		
 		}catch( Exception ex ){
 			throw new BoardException("게시판 ) 게시글 수정시 오류  : " + ex.toString() );	
@@ -293,12 +313,22 @@ public class BoardDao
 	//		( 게시글번호와 패스워드에 의해 삭제 )
 	public int delete( int article_id, String password ) throws BoardException
 	{
-
+		int result=0;
 		PreparedStatement ps = null;
 		try{
-
-
-			return 0; // 나중에 수정된 수를 리턴하시오.
+			// 1. 연결객체 얻어오기 
+			 Class.forName(dbDriver);
+	         // 2. sql 문장 만들기
+	         con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+	         // 3. 전송객체 얻어오기
+			String sql = "DELETE FROM article WHERE ARTICLE_ID=? AND PASSWORD=?";
+			 ps = con.prepareStatement(sql); 
+	         ps.setInt(1, article_id);
+	         ps.setString(2, password);
+	         
+	       result= ps.executeUpdate();
+	       
+			return result; // 나중에 수정된 수를 리턴하시오.
 		
 		}catch( Exception ex ){
 			throw new BoardException("게시판 ) 게시글 수정시 오류  : " + ex.toString() );	

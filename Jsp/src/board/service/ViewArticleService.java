@@ -22,11 +22,12 @@ public class ViewArticleService {
 	
 	public BoardRec getArticleById(String id) throws BoardException
 	{
-		int article_id = 0;
-		if( id != null ) article_id = Integer.parseInt(id);
-		BoardDao dao = BoardDao.getInstance();
-		dao.increaseReadCount(article_id);
-		BoardRec rec = dao.selectById(article_id);		
+		int article_id = 0; //article_id 초기화
+		if( id != null ) article_id = Integer.parseInt(id); //인자가 null이 아니면 article_id에 int형으로 저장
+		BoardDao dao = BoardDao.getInstance(); // Dao객체 생성
+		dao.increaseReadCount(article_id);		
+		BoardRec rec = dao.selectById(article_id);		// dao에서 selectById(id에따른 모든 인자값을구함)함수를 이용하여 
+		// 결과값을 리턴 
 		return rec;
 	}
 		

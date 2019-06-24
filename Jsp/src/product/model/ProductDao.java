@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import guest.model.Message;
+import product.model.ProductException;
+import product.model.ProductRec;
 import product.model.ProductException;
 
 public class ProductDao
@@ -27,6 +28,7 @@ public class ProductDao
 	
 	
 	private Connection	 		con;	
+	
 	
 	//--------------------------------------------
 	//#####	 객체 생성하는 메소드 
@@ -55,6 +57,42 @@ public class ProductDao
 		
 	}
 
+	//--------------------------------------------
+		//#####	 게시글 수정할 때
+		//		( 게시글번호와 패스워드에 의해 수정 )
+		public int update( ProductRec rec ) throws ProductException
+		{
+
+			PreparedStatement ps = null;
+			try{
+				// 1. 연결객체 얻어오기 
+				 Class.forName(dbDriver);
+		         // 2. sql 문장 만들기
+		         con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+		         // 3. 전송객체 얻어오기
+				String sql = "UPDATE product SET PEACH=? "
+						+ " WHERE PNO=?";
+						
+				 ps = con.prepareStatement(sql);
+				
+				 ps.setInt(1, rec.getpEach());
+				 ps.setString(2, rec.getpNo());
+				
+				 int result=ps.executeUpdate();
+		       
+				return result; // 나중에 수정된 수를 리턴하시오.
+
+			
+			}catch( Exception ex ){
+				throw new ProductException("게시판 ) 게시글 수정시 오류  : " + ex.toString() );	
+			} finally{
+				if( ps   != null ) { try{ ps.close();  } catch(SQLException ex){} }
+				if( con  != null ) { try{ con.close(); } catch(SQLException ex){} }
+			}
+			
+		}
+		
+		
 	   /* -------------------------------------------------------
 	    * 메세지 전체 레코드 수를 검색
 	    */

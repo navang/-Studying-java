@@ -1,11 +1,15 @@
+<%@page import="sun.security.jca.GetInstance"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="board.model.*,board.service.*" %>
 
 <%
 	// 1. 삭제할 레코드의 게시글번호와 비밀번호를 넘겨받기
+	String article_id= request.getParameter("article_id");
+	String password= request.getParameter("password");
 	// 2. Service에 delete() 호출
-	int result =  0; 
+	DeleteArticleService service = DeleteArticleService.getInstance();
+	int result =  service.delete(article_id, password); 
 %>
 <!DOCTYPE html>
 <html>

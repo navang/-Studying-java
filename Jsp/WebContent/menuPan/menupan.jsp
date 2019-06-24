@@ -16,9 +16,6 @@
 %> 
 
 <!--  받아와서 디비값수정 -->
-<% request.setCharacterEncoding("utf-8"); %>
-
-
    
  <!DOCTYPE html>
 <html>
@@ -29,10 +26,6 @@
 <script type="text/javascript">
 
 $(function(){
-			
-	
-
-	
 		var tsum=0;
 		$('.menuCount').each(function(){
 			$(this).change(function(){
@@ -59,6 +52,8 @@ $(function(){
 				tsum = tsum - $(this).attr("price");
 				$('#total').val(tsum);
 			});
+ 			
+ 		
 });
 </script>
  <link rel="stylesheet" type="text/css" href="style.css">
@@ -120,6 +115,7 @@ $(function(){
 		<td colspan='3'>
 			총합 : <input type='text'  id='total'/> 원 
 			<input type='button'	value='주문하기'  id='btn'/>
+			
 		</td>
 	</tr>
 	<tr id="listtr">
