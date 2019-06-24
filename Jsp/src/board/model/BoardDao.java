@@ -1,10 +1,17 @@
 package board.model;
 
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import product.model.ProductRec;
 
 public class BoardDao
 {
@@ -145,12 +152,39 @@ public class BoardDao
 	// 순서번호(sequence_no)로 역순정렬
 	public List<BoardRec> selectList() throws BoardException
 	{
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		List<BoardRec> mList = new ArrayList<BoardRec>();
-		boolean isEmpty = true;
+		  Connection        con = null;
+	      PreparedStatement ps = null;
+	      ResultSet rs = null;
+	      List<ProductRec> mList = new ArrayList<ProductRec>();
+	      boolean isEmpty = true;
 		
 		try{
+			 // 1. 연결객체 얻어오기 
+			 Class.forName(dbDriver);
+	         // 2. sql 문장 만들기
+	         con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+	         // 3. 전송객체 얻어오기
+	         String sql = "SELECT * FROM article";
+	         // 4. 전송하기
+	         ps = con.prepareStatement(sql); 
+	        //5 결과집합 받아 결과를 groupId에 저장
+	         
+	         rs = ps.executeQuery();
+	         
+	         while(rs.next()) {
+	        	 BoardRec rec = new BoardRec();
+	        	 rec.setArticleId(rs.getInt("ARTICLE_ID"));
+		            rec.setGroupId(rs.getInt("GROUP_ID"));
+		            rec.setSequenceNo(rs.getString("SEQUENCE_NO"));
+		            rec.setPostingDate(rs.getString("POSTING_DATE"));
+		            rec.setReadCount(rs.getInt("READ_COUNT"));
+		            rec.setWriterName(rs.getString("WRITER_NAME"));
+		            rec.setPassword(rs.getString("PASSWORD"));
+		            rec.setTitle(rs.getString("TITLE"));
+		            rec.setContent(rs.getString("CONTENT"));
+		            mList.add(rec);
+		            isEmpty = false;
+	         }
 
 
 			
