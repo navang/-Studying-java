@@ -101,11 +101,12 @@ a:hover, a:focus{color:#c60;}
 
 /*전체 메뉴 영역*/
 #total_btn{position:absolute;bottom:18px;right:100px;}
+
 #total_menu{
   width:1003px;height:263px;
   background:url("../images/total_bg.gif") no-repeat;
   position:absolute;top:227px;
-  left:0;display:none;
+  left:0; display :none;
 }
 #total_menu dl{float:left;margin:15px 45px 0 45px;}
 #total_menu dt{margin-bottom:8px;}
