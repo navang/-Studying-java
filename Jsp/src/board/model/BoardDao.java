@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import product.model.ProductRec;
 
 public class BoardDao
 {
@@ -122,9 +121,7 @@ public class BoardDao
 	         ps.setString(6, rec.getContent());
 	        
 	         int result = ps.executeUpdate();
-	         
-	         
-	         
+	                  
 	         
 	         if(result>0) {
 	        	 stmt = con.createStatement();

@@ -23,12 +23,12 @@ public class UpdateProductService {
 		
 	}
 	
-	public int update( ProductRec rec ) throws ProductException
-	{
-		ProductDao pDao = ProductDao.getInstance();
-		int result = Integer.parseUnsignedInt().pDao.update(rec);
-		
-		return result;
-	
-	}
+//	public int update( ProductRec rec ) throws ProductException
+//	{
+//		ProductDao pDao = ProductDao.getInstance();
+////		int result = Integer.parseUnsignedInt().pDao.update(rec);
+////		
+////		return result;
+//	
+//	}
 }

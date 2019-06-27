@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.CommentMapper">
+
+	<select id="selectComment" parameterType="hashmap" resultType="mybatis.guest.model.Comment"> 
+	<!-- select태그 update, delete 등등 parameterType="int" -->
+		SELECT 
+		*
+		FROM comment_tab 				  <!--  where id = #{id} 파라미터는 이 id값의 자료형 -->
+	<where>	
+<!-- 	<![CDATA[ comment_no < 20 ]]>	 -->
+<!-- 	AND	   <where> 상황에 따라 태그부여 -->
+	<if test="commentNo !=null">		  
+		comment_no=#{commentNo}			<!-- commentNo 가 있으면-->
+	</if>
+	
+	</where>
+	
+	</select>
+	
+<!-- 	<select id='selectCommentByPK' parameterType="long" -->
+<!-- 	resultType='comment'> -->
+<!-- 	SELECT * -->
+<!-- 	FROM comment_tab -->
+<!-- 	WHERE comment_no=#{commentNo} -->	
+<!-- 	</select> -->
+
+	<insert id="insertComment" parameterType="comment">
+	INSERT INTO comment_tab(comment_no, user_id, comment_content, reg_date )
+	 VALUES(seq_comment_no.nextval, #{userId},#{commentContent},sysdate) 
+	 <!--
+	  #{}: PreparedStatement를 이용
+	  ${}: Statement
+	   -->
+	</insert>
+	
+	<delete id="deleteComment" parameterType="long">
+	DELETE FROM comment_tab WHERE comment_no= #{commentNo}
+	</delete>
+	
+
+	<update id="updateComment" parameterType="comment" >
+	UPDATE comment_tab
+    SET  user_id= #{userId} , comment_content= #{commentContent} 
+ 	WHERE comment_no = #{commentNo}
+	</update>
+	
+</mapper>
